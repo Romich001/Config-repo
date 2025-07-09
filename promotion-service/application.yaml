@@ -1,0 +1,103 @@
+spring:
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+
+  liquibase:
+    change-log: db.changelog/changelog.xml
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            loggerLevel: basic
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: mapping,bus-refresh,bus-env,health,circuitbreakerevents,retry
+  endpoint:
+    health:
+      show-details: always
+  health:
+    circuitbreakers:
+      enabled: true
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      account-service:
+        failure-rate-threshold: 50
+        automatic-transition-from-open-to-half-open-enabled: true
+        wait-duration-in-open-state:
+          seconds: 5
+        sliding-window-type: COUNT_BASED
+        sliding-window-size: 2
+        minimum-number-of-calls: 1
+        event-consumer-buffer-size: 10
+        register-health-indicator: true
+        permitted-number-of-calls-in-half-open-state: 3
+      security-service:
+        failure-rate-threshold: 50
+        automatic-transition-from-open-to-half-open-enabled: true
+        wait-duration-in-open-state:
+          seconds: 5
+        sliding-window-type: COUNT_BASED
+        sliding-window-size: 2
+        minimum-number-of-calls: 1
+        event-consumer-buffer-size: 10
+        register-health-indicator: true
+        permitted-number-of-calls-in-half-open-state: 3
+    circuit-breaker-aspect-order: 1
+  retry:
+    retry-aspect-order: 2
+    instances:
+      account-service:
+        wait-duration:
+          seconds: 5
+        max-attempts: 10
+      security-service:
+        wait-duration:
+          seconds: 5
+        max-attempts: 10
+
+logging:
+  level:
+    root: info
+    by.javaguru.jdmik4.promotionservice: debug
+    org.springdoc: DEBUG
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone : http://localhost:8761/eureka/
+    initial-instance-info-replication-interval-seconds: 5
+
+external:
+  identity-service:
+    name: ACCOUNT-SERVICE
+  security-service:
+    name: SECURITY-SERVICE
