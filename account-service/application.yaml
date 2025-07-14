@@ -13,4 +13,7 @@ eureka:
 
 logging:
   level:
+    org.springframework.kafka: DEBUG
     org.apache.kafka: INFO
+    org.springframework.kafka.transaction: DEBUG
+    org.springframework.kafka.listener: DEBUG
