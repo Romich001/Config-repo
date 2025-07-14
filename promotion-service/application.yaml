@@ -14,6 +14,12 @@ spring:
       hibernate:
         format_sql: true
 
+  kafka:
+    producer:
+      bootstrap-server: ${KAFKA_BOOTSTRAP_SERVER_HOST}:${KAFKA_BOOTSTRAP_SERVER_PORT_1},${KAFKA_BOOTSTRAP_SERVER_HOST}:${KAFKA_BOOTSTRAP_SERVER_PORT_2}
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
   jackson:
     deserialization:
       fail-on-unknown-properties: true
@@ -79,9 +85,8 @@ logging:
   level:
     root: info
     by.javaguru.jdmik4.promotionservice: debug
-    org.springdoc: DEBUG
     org.hibernate.SQL: debug
-    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.apache.kafka: INFO
 
 springdoc:
   api-docs:
