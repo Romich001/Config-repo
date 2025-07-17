@@ -98,7 +98,7 @@ springdoc:
 eureka:
   client:
     service-url:
-      defaultZone : http://localhost:8761/eureka/
+      defaultZone : ${EUREKA_URL}
     initial-instance-info-replication-interval-seconds: 5
 
 external:
@@ -106,3 +106,5 @@ external:
     name: ACCOUNT-SERVICE
   security-service:
     name: SECURITY-SERVICE
+  profiler-service:
+    name: PROFILER-SERVICE
