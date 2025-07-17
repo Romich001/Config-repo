@@ -26,6 +26,8 @@ spring:
 
   cloud:
     openfeign:
+      httpclient:
+        enabled: true
       client:
         config:
           default:
