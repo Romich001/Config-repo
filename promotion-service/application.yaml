@@ -25,6 +25,7 @@ spring:
       fail-on-unknown-properties: true
 
   cloud:
+    openfeign:
       client:
         config:
           default:
