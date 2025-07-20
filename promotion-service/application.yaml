@@ -46,6 +46,17 @@ management:
 resilience4j:
   circuitbreaker:
     instances:
+      profiler-service:
+        failure-rate-threshold: 50
+        automatic-transition-from-open-to-half-open-enabled: true
+        wait-duration-in-open-state:
+          seconds: 5
+        sliding-window-type: COUNT_BASED
+        sliding-window-size: 2
+        minimum-number-of-calls: 1
+        event-consumer-buffer-size: 10
+        register-health-indicator: true
+        permitted-number-of-calls-in-half-open-state: 3
       account-service:
         failure-rate-threshold: 50
         automatic-transition-from-open-to-half-open-enabled: true
@@ -72,6 +83,10 @@ resilience4j:
   retry:
     retry-aspect-order: 2
     instances:
+      profiler-service:
+        wait-duration:
+          seconds: 5
+        max-attempts: 10
       account-service:
         wait-duration:
           seconds: 5
