@@ -27,15 +27,12 @@ spring:
   cloud:
     openfeign:
       httpclient:
-        enabled: true
+        hc5:
+          enabled: true
       client:
         config:
           default:
             loggerLevel: basic
-
-feign:
-  httpclient:
-    enabled: true
 
 management:
   endpoints:
