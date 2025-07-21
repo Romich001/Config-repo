@@ -1,9 +1,30 @@
 spring:
   kafka:
     producer:
-      bootstrap-server: ${KAFKA_BOOTSTRAP_SERVER_HOST}:${KAFKA_BOOTSTRAP_SERVER_PORT_1},${KAFKA_BOOTSTRAP_SERVER_HOST}:${KAFKA_BOOTSTRAP_SERVER_PORT_2}
+#      bootstrap-server: ${KAFKA_BOOTSTRAP_SERVER_HOST}:${KAFKA_BOOTSTRAP_SERVER_PORT_1},${KAFKA_BOOTSTRAP_SERVER_HOST}:${KAFKA_BOOTSTRAP_SERVER_PORT_2}
+      bootstrap-server: localhost:9091
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+kafka:
+  producer:
+    topic-name:
+      topic-name:
+        promotion: internal-promotion-responses
+        onboarding: internal-onboarding-responses
+        relocation: internal-relocation-responses
+        recruitment: internal-recruitment-responses
+        resignation: internal-resignation-responses
+        education: internal-education-responses
+        business-trip: internal-business-trip-responses
+        vacation: internal-vacation-responses
+  topics:
+    configurations:
+      promotion-security-check:
+        name: security-check-requests
+        partitions: 3
+        replicas: 3
+        sync: 2
 
 eureka:
   client:
