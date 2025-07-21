@@ -2,7 +2,8 @@ spring:
   kafka:
     producer:
 #      bootstrap-server: ${KAFKA_BOOTSTRAP_SERVER_HOST}:${KAFKA_BOOTSTRAP_SERVER_PORT_1},${KAFKA_BOOTSTRAP_SERVER_HOST}:${KAFKA_BOOTSTRAP_SERVER_PORT_2}
-      bootstrap-server: localhost:9091
+
+      bootstrap-servers: localhost:9091
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
