@@ -8,7 +8,7 @@ spring:
 kafka:
   producer:
     topic:
-      name:
+      names:
         promotion: ${KAFKA_INTERNAL_PROMOTIONS_RESPONSES}
         onboarding: ${KAFKA_INTERNAL_ONBOARDING_RESPONSES}
         relocation: ${KAFKA_INTERNAL_RELOCATION_RESPONSES}
