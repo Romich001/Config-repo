@@ -16,7 +16,7 @@ kafka:
         resignation: ${KAFKA_INTERNAL_RESIGNATION_RESPONSES}
   topics:
     configurations:
-      security-check:
+      security-check-requests:
         name: ${KAFKA_SECURITY_CHECK_REQUESTS}
         partitions: 3
         replicas: 3
