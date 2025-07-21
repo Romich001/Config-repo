@@ -19,7 +19,7 @@ kafka:
         vacation: ${KAFKA_INTERNAL_VACATION_RESPONSES}
   topics:
     configurations:
-      accounting-allocate:
+      accounting-allocate-requests:
         name: ${KAFKA_ACCOUNTING_ALLOCATION_REQUESTS}
         partitions: 3
         replicas: 3
