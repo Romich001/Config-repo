@@ -8,12 +8,11 @@ spring:
 kafka:
   producer:
     topic-name:
-      topic-name:
-        promotion: ${KAFKA_INTERNAL_PROMOTIONS_RESPONSES}
-        onboarding: ${KAFKA_INTERNAL_ONBOARDING_RESPONSES}
-        relocation: ${KAFKA_INTERNAL_RELOCATION_RESPONSES}
-        recruitment: ${KAFKA_INTERNAL_RECRUITMENT_RESPONSES}
-        resignation: ${KAFKA_INTERNAL_RESIGNATION_RESPONSES}
+      promotion: ${KAFKA_INTERNAL_PROMOTIONS_RESPONSES}
+      onboarding: ${KAFKA_INTERNAL_ONBOARDING_RESPONSES}
+      relocation: ${KAFKA_INTERNAL_RELOCATION_RESPONSES}
+      recruitment: ${KAFKA_INTERNAL_RECRUITMENT_RESPONSES}
+      resignation: ${KAFKA_INTERNAL_RESIGNATION_RESPONSES}
   topics:
     configurations:
       security-check-requests:
