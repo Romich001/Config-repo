@@ -14,12 +14,9 @@ kafka:
         relocation: ${KAFKA_INTERNAL_RELOCATION_RESPONSES}
         recruitment: ${KAFKA_INTERNAL_RECRUITMENT_RESPONSES}
         resignation: ${KAFKA_INTERNAL_RESIGNATION_RESPONSES}
-        education: ${KAFKA_INTERNAL_EDUCATION_RESPONSES}
-        businesstrip: ${KAFKA_INTERNAL_BUSINESS_RESPONSES}
-        vacation: ${KAFKA_INTERNAL_VACATION_RESPONSES}
   topics:
     configurations:
-      promotion-security-check:
+      security-check:
         name: ${KAFKA_SECURITY_CHECK_REQUESTS}
         partitions: 3
         replicas: 3
@@ -28,7 +25,7 @@ kafka:
 eureka:
   client:
     service-url:
-      defaultZone : ${EUREKA_URL}
+      defaultZone: ${EUREKA_URL}
     initial-instance-info-replication-interval-seconds: 5
 
 logging:
