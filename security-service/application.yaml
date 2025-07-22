@@ -1,29 +1,3 @@
-spring:
-  kafka:
-    producer:
-      bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVER_HOST}:${KAFKA_BOOTSTRAP_SERVER_PORT_1},${KAFKA_BOOTSTRAP_SERVER_HOST}:${KAFKA_BOOTSTRAP_SERVER_PORT_2}
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-
-kafka:
-  producer:
-    topics:
-      promotion: ${KAFKA_INTERNAL_PROMOTIONS_RESPONSES}
-      onboarding: ${KAFKA_INTERNAL_ONBOARDING_RESPONSES}
-      relocation: ${KAFKA_INTERNAL_RELOCATION_RESPONSES}
-      recruitment: ${KAFKA_INTERNAL_RECRUITMENT_RESPONSES}
-      resignation: ${KAFKA_INTERNAL_RESIGNATION_RESPONSES}
-      education: ${KAFKA_INTERNAL_EDUCATION_RESPONSES}
-      businesstrip: ${KAFKA_INTERNAL_BUSINESS_RESPONSES}
-      vacation: ${KAFKA_INTERNAL_VACATION_RESPONSES}
-  topics:
-    configurations:
-      security-check-requests:
-        name: ${KAFKA_SECURITY_CHECK_REQUESTS}
-        partitions: 3
-        replicas: 3
-        sync: 2
-
 eureka:
   client:
     service-url:
